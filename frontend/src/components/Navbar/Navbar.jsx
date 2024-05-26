@@ -44,25 +44,37 @@ const Navbar = () => {
 
       <div className="flex items-center gap-4">
         <div className="sm:flex sm:gap-4">
-          <a
-            className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="#"
-          >
-            Login
-          </a>
+          <button className="btn rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow" onClick={()=>document.getElementById('my_modal_3').showModal()}>Login</button>
+<dialog id="my_modal_3" className="modal">
+  <div className="modal-box">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+  </div>
+</dialog>
 
           <div className="hidden sm:flex">
-            <a
-              className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-              href="#"
-            >
-              Register
-            </a>
+
+          <button className="btn rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600" onClick={()=>document.getElementById('my_modal_3').showModal()}>Register</button>
+<dialog id="my_modal_3" className="modal">
+  <div className="modal-box">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+  </div>
+</dialog>
+            
           </div>
         </div>
 
         <div className="block md:hidden">
-          <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+          <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
