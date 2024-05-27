@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.custom-slider .slick-slide {
+    margin: 0 10px; /* Adjust margin as needed */
+  }
+  
+  .custom-slider .slick-list {
+    margin: 0 -10px; /* Adjust margin as needed */
+  }
+  
+  .slider-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+  }
+  
+  

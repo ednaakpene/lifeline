@@ -1,69 +1,131 @@
-import React from 'react';
+import React, { useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import wellness from "../../assets/general-wellness.jpg";
+import men from "../../assets/means-health.jpg";
+import medicine from "../../assets/medicines.jpg";
+import women from "../../assets/womens-health.jpg";
 
 const Products = () => {
-  return (
-    <div className='mt-10'> 
-      <p className='text-bold text-center text-3xl'> Products</p>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-4 mt-10 mx-12">
+  const data = [
+    {
+      img: men,
+      name: "Men's Health",
+      description:
+        "Comprehensive medical care for men's physical, mental, and emotional health",
+    },
+    {
+      img: women,
+      name: "Women's Health",
+      description:
+        "Comprehensive medical care for women's physical, mental, and emotional health.",
+    },
+    {
+      img: medicine,
+      name: "Medicines and Treatment",
+      description:
+        "Expert medical care and effective treatment solutions for optimal health",
+    },
+    {
+      img: wellness,
+      name: "General Wellness",
+      description:
+        "Holistic medical care for physical, mental, and emotional wellbeing.",
+    },
+  ];
 
-<a href="#" className="block max-w-xs rounded-3xl pb-4 border-solid border-2 border-teal-600  shadow-sm shadow-indigo-100">
-  <img
-    alt=""
-     src="../../assets/general-wellness.jpg" 
-    className="h-50 w-full rounded-t-3xl object-cover"
-  />
-  <div className="mt-2">
-    <dl>
-      <div>
-        <dd className="font-medium">Men's Health</dd>
+  const slider = useRef(null);
+
+  const settings = {
+    accessibility: true,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+    ],
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col justify-center lg:px-32 px-5 pt-16">
+      <div className="flex flex-col items-center lg:flex-row justify-between mb-10 lg:mb-0">
+        <div>
+          <h1 className="text-4xl font-semibold text-center lg:text-start">
+            Our Products
+          </h1>
+          <p className="mt-2 text-center lg:text-start">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
+            quidem.
+          </p>
+        </div>
+        <div className="flex gap-5 mt-4 lg:mt-0">
+          <button
+            className="bg-teal-600 text-backgroundColor px-4 py-2 rounded-lg active:bg-teal-200"
+            onClick={() => slider.current.slickPrev()}
+          >
+            <FaArrowLeft color="white" size={25} />
+          </button>
+          <button
+            className="bg-teal-600 text-backgroundColor px-4 py-2 rounded-lg active:bg-teal-200"
+            onClick={() => slider.current.slickNext()}
+          >
+            <FaArrowRight color="white" size={25} />
+          </button>
+        </div>
       </div>
-    </dl>
-  </div>
-</a>
-<a href="#" className="block max-w-xs border-solid border border-teal-600 rounded-3xl pb-4 shadow-sm shadow-indigo-100">
-  <img
-    alt=""
-    src="https://img.freepik.com/free-photo/medium-shot-woman-training-with-dummbells_23-2150404904.jpg?t=st=1716473618~exp=1716477218~hmac=1f7ffe8105b608d84a1490485908df8aa96a79d9b81bb111a817d9b6fa80218c&w=1480"
-    className="h-50 w-full rounded-t-3xl object-cover"
-  />
-  <div className="mt-2">
-    <dl>
-      <div>
-        <dd className="font-medium">Women's Health</dd>
+      <div className="mt-5">
+        <Slider ref={slider} {...settings} className="custom-slider">
+          {data.map((e, index) => (
+            <div key={index}>
+              <div className="slider-item">
+                <img
+                  src={e.img}
+                  alt="img"
+                  className="h-56 rounded-t-xl w-full"
+                />
+                <div className="flex flex-col justify-center items-center">
+                  <h1 className="font-semibold text-xl pt-4">{e.name}</h1>
+                  <h3 className="pt-2 pb-4 text-center">{e.description}</h3>
+                </div>
+                <div class="flex justify-end px-4 pb-4 mt-4">
+                  <button class="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-200">
+                    View Products
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
-    </dl>
-  </div>
-</a>
-<a href="#" className="block max-w-xs rounded-3xl border-solid border border-teal-600 pb-4 shadow-sm shadow-indigo-100">
-  <img
-    alt=""
-    src="https://img.freepik.com/free-photo/pills-with-glass-jar_23-2148021445.jpg?t=st=1716473787~exp=1716477387~hmac=15798eeb47b1b2b0ce6a97d377bc4748e4c36c6fe76e3f683aee60f62ad0b528&w=1480"
-    className="h-40 w-full rounded-t-3xl object-cover"
-  />
-  <div className="mt-2">
-    <dl>
-      <div>
-        <dd className="font-medium">Medicines and Treatment</dd>
-      </div>
-    </dl>
-  </div>
-</a>
-<a href="#" className="block max-w-xs  rounded-3xl    shadow-sm shadow-indigo-100" style={{ backgroundColor:'#F1F1F2' }}>
-  <img
-    alt=""
-    src="https://img.freepik.com/free-photo/self-care-home-with-face-mask_23-2149007150.jpg?t=st=1716473852~exp=1716477452~hmac=aeb89c458963ca19fc5cb5205292d2f8c7d9863efbab066b8efff7bcf3566123&w=1480"
-    className="h-50 w-full rounded-t-3xl object-cover " 
-  />
-  <div className="mt-2 px-4 text-center mb-2">
-    <dl>
-      <div>
-        <dd className="font-medium text-xl">General Wellbeing</dd>
-        <dd className="text-sm text-gray-500">Holistic medical care for physical, mental, and emotional wellbeing.</dd>
-      </div>
-    </dl>
-  </div>
-</a>
-</div>
     </div>
   );
 };
