@@ -83,8 +83,7 @@ const Products = () => {
             Our Products
           </h1>
           <p className="mt-2 text-center lg:text-start">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
-            quidem.
+            Explore our wide range of products
           </p>
         </div>
         <div className="flex gap-5 mt-4 lg:mt-0">

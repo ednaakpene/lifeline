@@ -66,28 +66,24 @@ const Serve = () => {
               {activeTab === "Hospitals" && (
                 <div>
                   <h2 className="text-xl font-bold">List of Hospitals</h2>
-                  <p>Content for hospitals goes here...</p>
                   <Hospital />
                 </div>
               )}
               {activeTab === "Pharmacies" && (
                 <div>
                   <h2 className="text-xl font-bold">List of Pharmacies</h2>
-                  <p>Content for pharmacies goes here...</p>
                   <Pharmacy />
                 </div>
               )}
               {activeTab === "Laboratories" && (
                 <div>
                   <h2 className="text-xl font-bold">List of Laboratories</h2>
-                  <p>Content for laboratories goes here...</p>
                   <Laboratories />
                 </div>
               )}
               {activeTab === "Appointments" && (
                 <div>
                   <h2 className="text-xl font-bold">Appointments</h2>
-                  <p>Content for appointments goes here...</p>
                   <Appointment />
                 </div>
               )}
