@@ -111,7 +111,10 @@ const Login = () => {
               Forgot password?
             </a>
           </div>
-          <button type="submit" className="w-full px-4 py-2 text-white font-medium bg-teal-600 hover:bg-teal-200 active:bg-teal-600 rounded-lg duration-150">
+          <button
+            type="submit"
+            className="w-full px-4 py-2 text-white font-medium bg-teal-600 hover:bg-teal-200 active:bg-teal-600 rounded-lg duration-150"
+          >
             Sign in
           </button>
         </form>
